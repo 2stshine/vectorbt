@@ -1,0 +1,57 @@
+{
+  "config": {
+    "symbol": "BTC-USD",
+    "period": "60d",
+    "interval": "5m",
+    "freq": "5min",
+    "train_bars": 10080,
+    "validation_bars": 2880,
+    "test_bars": 2880,
+    "n_splits": 4,
+    "window_spec": "48,72,96,120,144,168,192,216",
+    "candidate_count": 8,
+    "min_trades": 1,
+    "selection_metric": "sharpe_ratio",
+    "init_cash": 1000.0,
+    "fees": 0.001,
+    "direction": "longonly"
+  },
+  "parsed_windows": [
+    48,
+    72,
+    96,
+    120,
+    144,
+    168,
+    192,
+    216
+  ],
+  "data": {
+    "symbol": "BTC-USD",
+    "rows": 17068,
+    "start": "2026-02-12 00:00:00+00:00",
+    "end": "2026-04-12 06:15:00+00:00"
+  },
+  "aggregate": {
+    "selection_metric": "sharpe_ratio",
+    "split_count": 4,
+    "candidate_count": 8,
+    "min_trades": 1,
+    "mean_train_score": 0.9895846426966326,
+    "mean_validation_score": -0.7517627034091446,
+    "mean_test_score": -0.6713516161285595,
+    "median_test_score": 0.021555398599073794,
+    "positive_test_ratio": 0.5,
+    "test_outperformed_hold_ratio": 0.0,
+    "mean_train_validation_gap": 1.7413473461057773,
+    "mean_validation_test_gap": -0.0804110872805851,
+    "mean_test_return": -0.006325752656752655,
+    "mean_test_hold_return": 0.07297274914177235,
+    "unique_parameter_pairs": 3,
+    "parameter_change_ratio": 0.6666666666666666
+  },
+  "files": {
+    "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/selected_params.csv",
+    "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/grid_metrics.csv"
+  }
+}

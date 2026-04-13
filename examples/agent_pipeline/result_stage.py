@@ -80,6 +80,21 @@ def evaluate_run_directory(run_dir: str | Path, rules: AssessmentRules | None = 
     failed_checks = [name for name, check in checks.items() if not check["passed"]]
     verdict = "pass" if not failed_checks else "fail"
 
+    selected_candidates = (
+        selected_params[["candidate_id", "family", "candidate_label", "params_json"]]
+        .drop_duplicates()
+        .to_dict(orient="records")
+    )
+    selected_parameter_pairs: list[list[int]] = []
+    if {"fast_window", "slow_window"}.issubset(selected_params.columns):
+        selected_parameter_pairs = (
+            selected_params[["fast_window", "slow_window"]]
+            .drop_duplicates()
+            .astype(int)
+            .values
+            .tolist()
+        )
+
     assessment = {
         "run_dir": str(run_dir),
         "verdict": verdict,
@@ -91,7 +106,8 @@ def evaluate_run_directory(run_dir: str | Path, rules: AssessmentRules | None = 
         },
         "checks": checks,
         "failed_checks": failed_checks,
-        "selected_parameter_pairs": selected_params[["fast_window", "slow_window"]].drop_duplicates().values.tolist(),
+        "selected_candidates": selected_candidates,
+        "selected_parameter_pairs": selected_parameter_pairs,
     }
     return assessment
 

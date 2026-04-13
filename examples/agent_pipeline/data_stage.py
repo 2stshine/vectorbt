@@ -13,6 +13,12 @@ if str(REPO_ROOT) not in sys.path:
 from examples.agent_pipeline.common import save_json
 
 
+SUPPORTED_DATA_SOURCES = ("yahoo", "ccxt")
+DEFAULT_SYMBOL_BY_SOURCE = {
+    "yahoo": "BTC-USD",
+    "ccxt": "BTC/USDT:USDT",
+}
+
 BARS_PER_DAY_BY_INTERVAL = {
     "1m": 24 * 60,
     "2m": 24 * 30,
@@ -40,14 +46,18 @@ FREQ_BY_INTERVAL = {
 
 @dataclass(frozen=True)
 class DataSpec:
-    symbol: str = "BTC-USD"
-    period: str = "60d"
+    symbol: str = "BTC/USDT:USDT"
+    data_source: str = "ccxt"
+    exchange: str = "binanceusdm"
+    period: str | None = "540d"
+    start: str | None = None
+    end: str | None = None
     interval: str = "5m"
     freq: str = "5min"
-    train_days: int = 35
-    validation_days: int = 10
-    test_days: int = 10
-    n_splits: int = 4
+    train_days: int = 45
+    validation_days: int = 15
+    test_days: int = 15
+    n_splits: int = 6
 
     @property
     def bars_per_day(self) -> int:
@@ -84,6 +94,20 @@ class DataSpec:
         return payload
 
 
+def normalize_data_source(data_source: str) -> str:
+    normalized = data_source.strip().lower()
+    if normalized not in SUPPORTED_DATA_SOURCES:
+        raise ValueError(
+            f"Unsupported data source {data_source!r}. "
+            f"Choose one of {SUPPORTED_DATA_SOURCES}."
+        )
+    return normalized
+
+
+def default_symbol_for_source(data_source: str) -> str:
+    return DEFAULT_SYMBOL_BY_SOURCE[normalize_data_source(data_source)]
+
+
 def default_freq_for_interval(interval: str) -> str:
     try:
         return FREQ_BY_INTERVAL[interval]
@@ -95,18 +119,27 @@ def default_freq_for_interval(interval: str) -> str:
 
 
 def build_data_spec(
-    symbol: str = "BTC-USD",
-    period: str = "60d",
+    symbol: str | None = None,
+    data_source: str = "ccxt",
+    exchange: str = "binanceusdm",
+    period: str | None = "540d",
+    start: str | None = None,
+    end: str | None = None,
     interval: str = "5m",
     freq: str | None = None,
-    train_days: int = 35,
-    validation_days: int = 10,
-    test_days: int = 10,
-    n_splits: int = 4,
+    train_days: int = 45,
+    validation_days: int = 15,
+    test_days: int = 15,
+    n_splits: int = 6,
 ) -> DataSpec:
+    normalized_source = normalize_data_source(data_source)
     return DataSpec(
-        symbol=symbol,
+        symbol=symbol or default_symbol_for_source(normalized_source),
+        data_source=normalized_source,
+        exchange=exchange,
         period=period,
+        start=start,
+        end=end,
         interval=interval,
         freq=freq or default_freq_for_interval(interval),
         train_days=train_days,
@@ -122,14 +155,18 @@ def save_data_spec(data_spec: DataSpec, output_path: str | Path) -> Path:
 
 def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Create a data specification for the walk-forward pipeline.")
-    parser.add_argument("--symbol", default="BTC-USD")
-    parser.add_argument("--period", default="60d")
+    parser.add_argument("--symbol", default=None)
+    parser.add_argument("--data-source", default="ccxt", choices=SUPPORTED_DATA_SOURCES)
+    parser.add_argument("--exchange", default="binanceusdm")
+    parser.add_argument("--period", default="540d")
+    parser.add_argument("--start", default=None)
+    parser.add_argument("--end", default=None)
     parser.add_argument("--interval", default="5m")
     parser.add_argument("--freq", default=None)
-    parser.add_argument("--train-days", type=int, default=35)
-    parser.add_argument("--validation-days", type=int, default=10)
-    parser.add_argument("--test-days", type=int, default=10)
-    parser.add_argument("--n-splits", type=int, default=4)
+    parser.add_argument("--train-days", type=int, default=45)
+    parser.add_argument("--validation-days", type=int, default=15)
+    parser.add_argument("--test-days", type=int, default=15)
+    parser.add_argument("--n-splits", type=int, default=6)
     parser.add_argument("--output", default=None)
     return parser
 
@@ -140,7 +177,11 @@ def main() -> int:
 
     data_spec = build_data_spec(
         symbol=args.symbol,
+        data_source=args.data_source,
+        exchange=args.exchange,
         period=args.period,
+        start=args.start,
+        end=args.end,
         interval=args.interval,
         freq=args.freq,
         train_days=args.train_days,

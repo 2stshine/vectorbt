@@ -1,0 +1,11 @@
+{
+  "strategy_name": "ma_crossover",
+  "family": "moving_average_cross",
+  "window_spec": "6,12,18,30,42,66,90,138",
+  "candidate_count": 6,
+  "min_trades": 1,
+  "selection_metric": "total_return",
+  "direction": "longonly",
+  "fees": 0.001,
+  "init_cash": 1000.0
+}

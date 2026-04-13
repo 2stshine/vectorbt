@@ -1,0 +1,72 @@
+{
+  "config": {
+    "symbol": "BTC/USDT",
+    "data_source": "ccxt",
+    "exchange": "binance",
+    "period": "540d",
+    "start": null,
+    "end": null,
+    "interval": "5m",
+    "freq": "5min",
+    "train_bars": 12960,
+    "validation_bars": 4320,
+    "test_bars": 4320,
+    "n_splits": 6,
+    "window_spec": "6,12,18,24,36,48,72,96,144",
+    "candidate_count": 8,
+    "min_trades": 1,
+    "selection_metric": "sharpe_ratio",
+    "init_cash": 1000.0,
+    "fees": 0.001,
+    "direction": "longonly"
+  },
+  "parsed_windows": [
+    6,
+    12,
+    18,
+    24,
+    36,
+    48,
+    72,
+    96,
+    144
+  ],
+  "data": {
+    "symbol": "BTC/USDT",
+    "data_source": "ccxt",
+    "exchange": "binance",
+    "period": "540d",
+    "requested_start": null,
+    "requested_end": null,
+    "resolved_start": "2024-10-19T07:08:00+00:00",
+    "resolved_end": "2026-04-12T07:08:00+00:00",
+    "interval": "5m",
+    "rows": 155520,
+    "start": "2024-10-19 07:10:00+00:00",
+    "end": "2026-04-12 07:05:00+00:00"
+  },
+  "aggregate": {
+    "selection_metric": "sharpe_ratio",
+    "split_count": 6,
+    "candidate_count": 8,
+    "min_trades": 1,
+    "mean_train_score": -2.6902919177069506,
+    "mean_validation_score": -0.9436332264650162,
+    "mean_test_score": -2.9576945408285673,
+    "median_test_score": -2.1025291354640094,
+    "positive_test_ratio": 0.16666666666666666,
+    "test_outperformed_hold_ratio": 0.0,
+    "mean_train_validation_gap": -1.7466586912419342,
+    "mean_validation_test_gap": 2.0140613143635515,
+    "mean_test_return": -0.03410249607355242,
+    "mean_test_hold_return": 0.025793471214783342,
+    "unique_parameter_pairs": 3,
+    "parameter_change_ratio": 0.4
+  },
+  "files": {
+    "selected_params_csv": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_160856/selected_params.csv",
+    "grid_metrics_csv": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_160856/grid_metrics.csv",
+    "test_timeline_csv": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_160856/test_timeline.csv",
+    "overfitting_timeline_csv": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_160856/overfitting_timeline.csv"
+  }
+}

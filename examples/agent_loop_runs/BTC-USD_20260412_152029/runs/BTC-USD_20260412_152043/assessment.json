@@ -1,0 +1,68 @@
+{
+  "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043",
+  "verdict": "fail",
+  "selection_metric": "total_return",
+  "rules": {
+    "min_positive_test_ratio": 0.5,
+    "min_test_outperformed_hold_ratio": 0.5,
+    "min_median_test_score": 0.0,
+    "min_mean_test_return": 0.0,
+    "max_mean_test_drawdown": 0.2
+  },
+  "aggregate_snapshot": {
+    "selection_metric": "total_return",
+    "split_count": 4,
+    "candidate_count": 8,
+    "min_trades": 1,
+    "mean_train_score": 0.134742772562533,
+    "mean_validation_score": 0.005787396258122697,
+    "mean_test_score": -0.0016331676915312412,
+    "median_test_score": -0.0024790401294242205,
+    "positive_test_ratio": 0.5,
+    "test_outperformed_hold_ratio": 0.0,
+    "mean_train_validation_gap": 0.12895537630441029,
+    "mean_validation_test_gap": 0.007420563949653939,
+    "mean_test_return": -0.0016331676915312412,
+    "mean_test_hold_return": 0.0728996397255943,
+    "unique_parameter_pairs": 2,
+    "parameter_change_ratio": 0.3333333333333333,
+    "mean_test_drawdown": 0.041863210952079496
+  },
+  "checks": {
+    "median_test_score": {
+      "passed": false,
+      "message": "Median test score stayed below the minimum threshold."
+    },
+    "positive_test_ratio": {
+      "passed": true,
+      "message": "Enough test windows stayed above zero."
+    },
+    "test_outperformed_hold_ratio": {
+      "passed": false,
+      "message": "The strategy lost to buy-and-hold too often."
+    },
+    "mean_test_return": {
+      "passed": false,
+      "message": "Mean out-of-sample return stayed negative."
+    },
+    "mean_test_drawdown": {
+      "passed": true,
+      "message": "Mean test drawdown stayed within the risk budget."
+    }
+  },
+  "failed_checks": [
+    "median_test_score",
+    "test_outperformed_hold_ratio",
+    "mean_test_return"
+  ],
+  "selected_parameter_pairs": [
+    [
+      144,
+      288
+    ],
+    [
+      168,
+      312
+    ]
+  ]
+}
