@@ -1,0 +1,85 @@
+{
+  "run_dir": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_160924",
+  "verdict": "fail",
+  "selection_metric": "sharpe_ratio",
+  "rules": {
+    "min_positive_test_ratio": 0.5,
+    "min_test_outperformed_hold_ratio": 0.5,
+    "min_median_test_score": 0.0,
+    "min_mean_test_return": 0.0,
+    "max_mean_test_drawdown": 0.2
+  },
+  "aggregate_snapshot": {
+    "selection_metric": "sharpe_ratio",
+    "split_count": 6,
+    "candidate_count": 8,
+    "min_trades": 1,
+    "mean_train_score": -1.4655762688219554,
+    "mean_validation_score": -1.8657093861752985,
+    "mean_test_score": -2.294825985544787,
+    "median_test_score": -2.1688469601793354,
+    "positive_test_ratio": 0.16666666666666666,
+    "test_outperformed_hold_ratio": 0.0,
+    "mean_train_validation_gap": 0.4001331173533431,
+    "mean_validation_test_gap": 0.42911659936948826,
+    "mean_test_return": -0.02760839984096693,
+    "mean_test_hold_return": 0.025852038972759256,
+    "unique_parameter_pairs": 6,
+    "parameter_change_ratio": 1.0,
+    "mean_test_drawdown": 0.06667772499337403
+  },
+  "checks": {
+    "median_test_score": {
+      "passed": false,
+      "message": "Median test score stayed below the minimum threshold."
+    },
+    "positive_test_ratio": {
+      "passed": false,
+      "message": "Too few test windows stayed above zero."
+    },
+    "test_outperformed_hold_ratio": {
+      "passed": false,
+      "message": "The strategy lost to buy-and-hold too often."
+    },
+    "mean_test_return": {
+      "passed": false,
+      "message": "Mean out-of-sample return stayed negative."
+    },
+    "mean_test_drawdown": {
+      "passed": true,
+      "message": "Mean test drawdown stayed within the risk budget."
+    }
+  },
+  "failed_checks": [
+    "median_test_score",
+    "positive_test_ratio",
+    "test_outperformed_hold_ratio",
+    "mean_test_return"
+  ],
+  "selected_parameter_pairs": [
+    [
+      96,
+      150
+    ],
+    [
+      36,
+      150
+    ],
+    [
+      24,
+      138
+    ],
+    [
+      30,
+      102
+    ],
+    [
+      42,
+      102
+    ],
+    [
+      42,
+      150
+    ]
+  ]
+}

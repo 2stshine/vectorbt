@@ -1,0 +1,35 @@
+{
+  "strategy_name": "ma_crossover_ls",
+  "family": "ma_crossover_ls",
+  "window_spec": "6,12,18,24,36,48,72,96,144",
+  "search_space": {
+    "fast_window": [
+      6,
+      12,
+      18,
+      24,
+      36,
+      48,
+      72,
+      96,
+      144
+    ],
+    "slow_window": [
+      6,
+      12,
+      18,
+      24,
+      36,
+      48,
+      72,
+      96,
+      144
+    ]
+  },
+  "candidate_count": 8,
+  "min_trades": 1,
+  "selection_metric": "total_return",
+  "direction": "both",
+  "fees": 0.00015,
+  "init_cash": 1000.0
+}

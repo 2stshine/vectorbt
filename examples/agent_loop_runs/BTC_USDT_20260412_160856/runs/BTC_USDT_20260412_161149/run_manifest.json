@@ -1,0 +1,46 @@
+{
+  "run_dir": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149",
+  "verdict": "fail",
+  "files": {
+    "data_spec_json": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/data_spec.json",
+    "strategy_spec_json": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/strategy_spec.json",
+    "summary_json": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/summary.json",
+    "selected_params_csv": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/selected_params.csv",
+    "grid_metrics_csv": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/grid_metrics.csv",
+    "test_timeline_csv": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/test_timeline.csv",
+    "overfitting_timeline_csv": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/overfitting_timeline.csv",
+    "assessment_json": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/assessment.json",
+    "summary_ko_md": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/summary_ko.md",
+    "hold_comparison_png": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/plots/hold_comparison.png",
+    "return_timeline_png": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/plots/return_timeline.png",
+    "overfitting_timeline_png": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161149/plots/overfitting_timeline.png"
+  },
+  "aggregate": {
+    "selection_metric": "sharpe_ratio",
+    "split_count": 6,
+    "candidate_count": 4,
+    "min_trades": 1,
+    "mean_train_score": -1.2864583781001784,
+    "mean_validation_score": -2.0949766296459575,
+    "mean_test_score": -1.7723387753932547,
+    "median_test_score": -2.375999317943701,
+    "positive_test_ratio": 0.16666666666666666,
+    "test_outperformed_hold_ratio": 0.0,
+    "mean_train_validation_gap": 0.8085182515457793,
+    "mean_validation_test_gap": -0.3226378542527024,
+    "mean_test_return": -0.021616126435009847,
+    "mean_test_hold_return": 0.02636615343483419,
+    "unique_parameter_pairs": 5,
+    "parameter_change_ratio": 1.0
+  },
+  "failed_checks": [
+    "median_test_score",
+    "positive_test_ratio",
+    "test_outperformed_hold_ratio",
+    "mean_test_return"
+  ],
+  "latest": {
+    "latest_symlink": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/latest",
+    "latest_json": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/latest_run.json"
+  }
+}

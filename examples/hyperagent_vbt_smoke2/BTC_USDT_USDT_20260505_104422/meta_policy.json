@@ -1,0 +1,15 @@
+{
+  "parent_selection": "score_child_prop",
+  "stage_min_median_test_score": -0.05,
+  "stage_min_positive_test_ratio": 0.25,
+  "stage_candidate_cap": 6,
+  "stage_n_splits": 2,
+  "staged_score_frac": 0.35,
+  "exploration_prob": 0.59,
+  "family_switch_after_failures": 1,
+  "max_candidate_count": 16,
+  "min_candidate_count": 4,
+  "top_k_archive_context": 6,
+  "focus_on_selected": true,
+  "widen_after_failure": true
+}

@@ -1,0 +1,1936 @@
+{
+  "loop_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029",
+  "iterations_completed": 12,
+  "stop_reason": "max_iterations_reached",
+  "best_iteration": 0,
+  "best_run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029",
+  "best_verdict": "fail",
+  "history": [
+    {
+      "iteration": 0,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "24:193:24",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "sharpe_ratio",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Baseline proposal from CLI inputs.",
+        "mutation_notes": []
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "sharpe_ratio",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "24:193:24"
+      ],
+      "rationale": "Baseline proposal from CLI inputs.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "sharpe_ratio",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": -0.8211094475554007,
+          "mean_validation_score": -1.7743813851570385,
+          "mean_test_score": 2.333642741614955,
+          "median_test_score": 2.09531949248699,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.9532719376016379,
+          "mean_validation_test_gap": -4.108024126771993,
+          "mean_test_return": 0.01722262370463008,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029",
+        "verdict": "fail",
+        "selection_metric": "sharpe_ratio",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "sharpe_ratio",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": -0.8211094475554007,
+          "mean_validation_score": -1.7743813851570385,
+          "mean_test_score": 2.333642741614955,
+          "median_test_score": 2.09531949248699,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.9532719376016379,
+          "mean_validation_test_gap": -4.108024126771993,
+          "mean_test_return": 0.01722262370463008,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333,
+          "mean_test_drawdown": 0.0384935053239701
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": true,
+            "message": "Mean out-of-sample return stayed positive."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ],
+        "selected_parameter_pairs": [
+          [
+            96,
+            192
+          ],
+          [
+            48,
+            144
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152029/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152029/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152029/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152029/summary_ko.md"
+    },
+    {
+      "iteration": 1,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "24,48,72,96,120,144,168,192,216",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "sharpe_ratio",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+        "mutation_notes": [
+          "Focused the search grid around the selected fast/slow windows."
+        ]
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "sharpe_ratio",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "24,48,72,96,120,144,168,192,216"
+      ],
+      "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "sharpe_ratio",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 1.343088951428237,
+          "mean_validation_score": -0.7155156818464649,
+          "mean_test_score": -0.2192119106949003,
+          "median_test_score": 0.48510890193491707,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 2.058604633274702,
+          "mean_validation_test_gap": -0.49630377115156454,
+          "mean_test_return": -0.002605038484423062,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034",
+        "verdict": "fail",
+        "selection_metric": "sharpe_ratio",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "sharpe_ratio",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 1.343088951428237,
+          "mean_validation_score": -0.7155156818464649,
+          "mean_test_score": -0.2192119106949003,
+          "median_test_score": 0.48510890193491707,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 2.058604633274702,
+          "mean_validation_test_gap": -0.49630377115156454,
+          "mean_test_return": -0.002605038484423062,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666,
+          "mean_test_drawdown": 0.04776419380349605
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": false,
+            "message": "Mean out-of-sample return stayed negative."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ],
+        "selected_parameter_pairs": [
+          [
+            24,
+            216
+          ],
+          [
+            120,
+            216
+          ],
+          [
+            192,
+            216
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152034/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152034/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152034/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152034/summary_ko.md"
+    },
+    {
+      "iteration": 2,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "24:193:24",
+        "candidate_count": 6,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Best-of-history anchor. The strategy failed to beat buy-and-hold often enough, so the loop switches the selection target toward raw return and trims the candidate pool.",
+        "mutation_notes": [
+          "Switched the validation selection metric and reduced the train candidate pool.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4."
+        ]
+      },
+      "proposal_signature": [
+        6,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "total_return",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "24:193:24"
+      ],
+      "rationale": "Best-of-history anchor. The strategy failed to beat buy-and-hold often enough, so the loop switches the selection target toward raw return and trims the candidate pool.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 6,
+          "min_trades": 1,
+          "mean_train_score": 0.030197329915312224,
+          "mean_validation_score": -0.02808375229635183,
+          "mean_test_score": -0.013979644025902047,
+          "median_test_score": -0.016938029294945978,
+          "positive_test_ratio": 0.0,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.05828108221166406,
+          "mean_validation_test_gap": -0.014104108270449785,
+          "mean_test_return": -0.013979644025902047,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666
+        },
+        "failed_checks": [
+          "median_test_score",
+          "positive_test_ratio",
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035",
+        "verdict": "fail",
+        "selection_metric": "total_return",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 6,
+          "min_trades": 1,
+          "mean_train_score": 0.030197329915312224,
+          "mean_validation_score": -0.02808375229635183,
+          "mean_test_score": -0.013979644025902047,
+          "median_test_score": -0.016938029294945978,
+          "positive_test_ratio": 0.0,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.05828108221166406,
+          "mean_validation_test_gap": -0.014104108270449785,
+          "mean_test_return": -0.013979644025902047,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666,
+          "mean_test_drawdown": 0.05910741631181795
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": false,
+            "message": "Median test score stayed below the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": false,
+            "message": "Too few test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": false,
+            "message": "Mean out-of-sample return stayed negative."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "median_test_score",
+          "positive_test_ratio",
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ],
+        "selected_parameter_pairs": [
+          [
+            48,
+            192
+          ],
+          [
+            24,
+            168
+          ],
+          [
+            144,
+            192
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152035/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152035/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152035/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152035/summary_ko.md"
+    },
+    {
+      "iteration": 3,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "48,72,96,120,144,168,192,216",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "sharpe_ratio",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Best-of-history anchor. Losing to buy-and-hold can mean too much whipsaw, so the loop tests a slower MA family.",
+        "mutation_notes": [
+          "Shifted the MA window grid slower to reduce whipsaw.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4."
+        ]
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "sharpe_ratio",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "48,72,96,120,144,168,192,216"
+      ],
+      "rationale": "Best-of-history anchor. Losing to buy-and-hold can mean too much whipsaw, so the loop tests a slower MA family.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "sharpe_ratio",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.9895846426966326,
+          "mean_validation_score": -0.7517627034091446,
+          "mean_test_score": -0.6713516161285595,
+          "median_test_score": 0.021555398599073794,
+          "positive_test_ratio": 0.5,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 1.7413473461057773,
+          "mean_validation_test_gap": -0.0804110872805851,
+          "mean_test_return": -0.006325752656752655,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036",
+        "verdict": "fail",
+        "selection_metric": "sharpe_ratio",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "sharpe_ratio",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.9895846426966326,
+          "mean_validation_score": -0.7517627034091446,
+          "mean_test_score": -0.6713516161285595,
+          "median_test_score": 0.021555398599073794,
+          "positive_test_ratio": 0.5,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 1.7413473461057773,
+          "mean_validation_test_gap": -0.0804110872805851,
+          "mean_test_return": -0.006325752656752655,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666,
+          "mean_test_drawdown": 0.047304189530296976
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": false,
+            "message": "Mean out-of-sample return stayed negative."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ],
+        "selected_parameter_pairs": [
+          [
+            48,
+            192
+          ],
+          [
+            120,
+            216
+          ],
+          [
+            192,
+            216
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152036/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152036/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152036/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152036/summary_ko.md"
+    },
+    {
+      "iteration": 4,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "24:193:24",
+        "candidate_count": 10,
+        "min_trades": 1,
+        "selection_metric": "sharpe_ratio",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Best-of-history anchor. The previous iteration did not pass, so the loop broadens the search by increasing the candidate pool slightly.",
+        "mutation_notes": [
+          "Increased the number of train candidates that reach validation.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4."
+        ]
+      },
+      "proposal_signature": [
+        10,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "sharpe_ratio",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "24:193:24"
+      ],
+      "rationale": "Best-of-history anchor. The previous iteration did not pass, so the loop broadens the search by increasing the candidate pool slightly.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "sharpe_ratio",
+          "split_count": 4,
+          "candidate_count": 10,
+          "min_trades": 1,
+          "mean_train_score": -0.8390354773298313,
+          "mean_validation_score": -1.7372323065279789,
+          "mean_test_score": 1.1385116660093109,
+          "median_test_score": 1.3538633247991614,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.8981968291981477,
+          "mean_validation_test_gap": -2.8757439725372897,
+          "mean_test_return": 0.0077141690427421,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037",
+        "verdict": "fail",
+        "selection_metric": "sharpe_ratio",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "sharpe_ratio",
+          "split_count": 4,
+          "candidate_count": 10,
+          "min_trades": 1,
+          "mean_train_score": -0.8390354773298313,
+          "mean_validation_score": -1.7372323065279789,
+          "mean_test_score": 1.1385116660093109,
+          "median_test_score": 1.3538633247991614,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.8981968291981477,
+          "mean_validation_test_gap": -2.8757439725372897,
+          "mean_test_return": 0.0077141690427421,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333,
+          "mean_test_drawdown": 0.04148033990911758
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": true,
+            "message": "Mean out-of-sample return stayed positive."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ],
+        "selected_parameter_pairs": [
+          [
+            96,
+            192
+          ],
+          [
+            48,
+            144
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152037/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152037/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152037/summary_ko.md"
+    },
+    {
+      "iteration": 5,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "24:193:24",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Best-of-history anchor. The previous iteration did not pass, so the loop toggles the validation objective to test a different ranking criterion.",
+        "mutation_notes": [
+          "Toggled the validation selection metric.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4."
+        ]
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "total_return",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "24:193:24"
+      ],
+      "rationale": "Best-of-history anchor. The previous iteration did not pass, so the loop toggles the validation objective to test a different ranking criterion.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": -0.03527143737095446,
+          "mean_validation_score": -0.014802915994923978,
+          "mean_test_score": 0.01722262370463008,
+          "median_test_score": 0.015230876108536278,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": -0.02046852137603048,
+          "mean_validation_test_gap": -0.03202553969955406,
+          "mean_test_return": 0.01722262370463008,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037",
+        "verdict": "fail",
+        "selection_metric": "total_return",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": -0.03527143737095446,
+          "mean_validation_score": -0.014802915994923978,
+          "mean_test_score": 0.01722262370463008,
+          "median_test_score": 0.015230876108536278,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": -0.02046852137603048,
+          "mean_validation_test_gap": -0.03202553969955406,
+          "mean_test_return": 0.01722262370463008,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333,
+          "mean_test_drawdown": 0.0384935053239701
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": true,
+            "message": "Mean out-of-sample return stayed positive."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ],
+        "selected_parameter_pairs": [
+          [
+            96,
+            192
+          ],
+          [
+            48,
+            144
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152037/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152037/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152037/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152037/summary_ko.md"
+    },
+    {
+      "iteration": 6,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "24,48,72,96,120,144,168,192,216",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+        "mutation_notes": [
+          "Toggled the validation selection metric.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4.",
+          "Focused the search grid around the selected fast/slow windows."
+        ]
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "total_return",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "24,48,72,96,120,144,168,192,216"
+      ],
+      "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.042548659674356885,
+          "mean_validation_score": -0.007409993525318896,
+          "mean_test_score": -0.002605038484423062,
+          "median_test_score": 0.0026515543481669397,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.04995865319967578,
+          "mean_validation_test_gap": -0.004804955040895833,
+          "mean_test_return": -0.002605038484423062,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038",
+        "verdict": "fail",
+        "selection_metric": "total_return",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.042548659674356885,
+          "mean_validation_score": -0.007409993525318896,
+          "mean_test_score": -0.002605038484423062,
+          "median_test_score": 0.0026515543481669397,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.04995865319967578,
+          "mean_validation_test_gap": -0.004804955040895833,
+          "mean_test_return": -0.002605038484423062,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666,
+          "mean_test_drawdown": 0.04776419380349605
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": false,
+            "message": "Mean out-of-sample return stayed negative."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ],
+        "selected_parameter_pairs": [
+          [
+            24,
+            216
+          ],
+          [
+            120,
+            216
+          ],
+          [
+            192,
+            216
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152038/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152038/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152038/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152038/summary_ko.md"
+    },
+    {
+      "iteration": 7,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "24,48,96,120,144,168,192,216,240",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+        "mutation_notes": [
+          "Toggled the validation selection metric.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows."
+        ]
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "total_return",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "24,48,96,120,144,168,192,216,240"
+      ],
+      "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.057679173633773076,
+          "mean_validation_score": -0.00360288683520929,
+          "mean_test_score": 0.010665467491995033,
+          "median_test_score": 0.011280920125172143,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.061282060468982366,
+          "mean_validation_test_gap": -0.01426835432720432,
+          "mean_test_return": 0.010665467491995033,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039",
+        "verdict": "fail",
+        "selection_metric": "total_return",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.057679173633773076,
+          "mean_validation_score": -0.00360288683520929,
+          "mean_test_score": 0.010665467491995033,
+          "median_test_score": 0.011280920125172143,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.061282060468982366,
+          "mean_validation_test_gap": -0.01426835432720432,
+          "mean_test_return": 0.010665467491995033,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666,
+          "mean_test_drawdown": 0.04306980003621287
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": true,
+            "message": "Mean out-of-sample return stayed positive."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ],
+        "selected_parameter_pairs": [
+          [
+            24,
+            168
+          ],
+          [
+            96,
+            240
+          ],
+          [
+            168,
+            240
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152039/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152039/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152039/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152039/summary_ko.md"
+    },
+    {
+      "iteration": 8,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "24,48,72,96,120,144,168,192,216,240,264",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+        "mutation_notes": [
+          "Toggled the validation selection metric.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows."
+        ]
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "total_return",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "24,48,72,96,120,144,168,192,216,240,264"
+      ],
+      "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.08566789111516498,
+          "mean_validation_score": 0.0018632035739967704,
+          "mean_test_score": 0.015664270147027624,
+          "median_test_score": 0.01653098370512572,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.08380468754116822,
+          "mean_validation_test_gap": -0.013801066573030851,
+          "mean_test_return": 0.015664270147027624,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040",
+        "verdict": "fail",
+        "selection_metric": "total_return",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.08566789111516498,
+          "mean_validation_score": 0.0018632035739967704,
+          "mean_test_score": 0.015664270147027624,
+          "median_test_score": 0.01653098370512572,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.08380468754116822,
+          "mean_validation_test_gap": -0.013801066573030851,
+          "mean_test_return": 0.015664270147027624,
+          "mean_test_hold_return": 0.07297274914177235,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333,
+          "mean_test_drawdown": 0.0385472358702614
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": true,
+            "message": "Mean out-of-sample return stayed positive."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ],
+        "selected_parameter_pairs": [
+          [
+            72,
+            240
+          ],
+          [
+            168,
+            264
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152040/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152040/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152040/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152040/summary_ko.md"
+    },
+    {
+      "iteration": 9,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "48,72,96,144,168,192,216,240,264,288",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+        "mutation_notes": [
+          "Toggled the validation selection metric.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows."
+        ]
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "total_return",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "48,72,96,144,168,192,216,240,264,288"
+      ],
+      "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.10966871293234207,
+          "mean_validation_score": 0.003579152253344688,
+          "mean_test_score": 0.0051658085398817956,
+          "median_test_score": 0.0020232975554504264,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.10608956067899739,
+          "mean_validation_test_gap": -0.0015866562865371075,
+          "mean_test_return": 0.0051658085398817956,
+          "mean_test_hold_return": 0.0728996397255943,
+          "unique_parameter_pairs": 4,
+          "parameter_change_ratio": 1.0
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041",
+        "verdict": "fail",
+        "selection_metric": "total_return",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.10966871293234207,
+          "mean_validation_score": 0.003579152253344688,
+          "mean_test_score": 0.0051658085398817956,
+          "median_test_score": 0.0020232975554504264,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.10608956067899739,
+          "mean_validation_test_gap": -0.0015866562865371075,
+          "mean_test_return": 0.0051658085398817956,
+          "mean_test_hold_return": 0.0728996397255943,
+          "unique_parameter_pairs": 4,
+          "parameter_change_ratio": 1.0,
+          "mean_test_drawdown": 0.0406968759885938
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": true,
+            "message": "Mean out-of-sample return stayed positive."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ],
+        "selected_parameter_pairs": [
+          [
+            72,
+            264
+          ],
+          [
+            144,
+            288
+          ],
+          [
+            168,
+            264
+          ],
+          [
+            168,
+            288
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152041/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152041/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152041/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152041/summary_ko.md"
+    },
+    {
+      "iteration": 10,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "48,72,96,120,144,168,192,240,264,288,312",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+        "mutation_notes": [
+          "Toggled the validation selection metric.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows."
+        ]
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "total_return",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "48,72,96,120,144,168,192,240,264,288,312"
+      ],
+      "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.11626384523057015,
+          "mean_validation_score": 0.006038930166396313,
+          "mean_test_score": 0.0006180011509060827,
+          "median_test_score": 0.0020232975554504264,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.11022491506417384,
+          "mean_validation_test_gap": 0.00542092901549023,
+          "mean_test_return": 0.0006180011509060827,
+          "mean_test_hold_return": 0.0728996397255943,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042",
+        "verdict": "fail",
+        "selection_metric": "total_return",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.11626384523057015,
+          "mean_validation_score": 0.006038930166396313,
+          "mean_test_score": 0.0006180011509060827,
+          "median_test_score": 0.0020232975554504264,
+          "positive_test_ratio": 0.75,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.11022491506417384,
+          "mean_validation_test_gap": 0.00542092901549023,
+          "mean_test_return": 0.0006180011509060827,
+          "mean_test_hold_return": 0.0728996397255943,
+          "unique_parameter_pairs": 3,
+          "parameter_change_ratio": 0.6666666666666666,
+          "mean_test_drawdown": 0.04648441592028525
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": true,
+            "message": "Median test score cleared the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": true,
+            "message": "Mean out-of-sample return stayed positive."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "test_outperformed_hold_ratio"
+        ],
+        "selected_parameter_pairs": [
+          [
+            72,
+            264
+          ],
+          [
+            144,
+            288
+          ],
+          [
+            168,
+            312
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152042/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152042/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152042/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152042/summary_ko.md"
+    },
+    {
+      "iteration": 11,
+      "proposal": {
+        "symbol": "BTC-USD",
+        "period": "60d",
+        "interval": "5m",
+        "freq": null,
+        "train_days": 35,
+        "validation_days": 10,
+        "test_days": 10,
+        "n_splits": 4,
+        "window_spec": "48,72,96,120,144,168,192,240,264,288,312,336",
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "longonly",
+        "fees": 0.001,
+        "init_cash": 1000.0,
+        "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+        "mutation_notes": [
+          "Toggled the validation selection metric.",
+          "\ud604\uc7ac\uae4c\uc9c0 \ucd5c\uace0 \uc810\uc218 iteration\uc744 \uae30\uc900\uc73c\ub85c \ub2e4\uc74c \ud6c4\ubcf4\ub97c \ub9cc\ub4e4\uc5c8\uc2b5\ub2c8\ub2e4.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows.",
+          "Focused the search grid around the selected fast/slow windows."
+        ]
+      },
+      "proposal_signature": [
+        8,
+        "longonly",
+        0.001,
+        null,
+        1000.0,
+        "5m",
+        1,
+        4,
+        "60d",
+        "total_return",
+        "BTC-USD",
+        10,
+        35,
+        10,
+        "48,72,96,120,144,168,192,240,264,288,312,336"
+      ],
+      "rationale": "Selected parameter pairs clustered in a narrower band, so the loop zooms the next search around that region.",
+      "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043",
+      "verdict": "fail",
+      "manifest": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043",
+        "verdict": "fail",
+        "files": {
+          "data_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043/data_spec.json",
+          "strategy_spec_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043/strategy_spec.json",
+          "summary_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043/summary.json",
+          "selected_params_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043/selected_params.csv",
+          "grid_metrics_csv": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043/grid_metrics.csv",
+          "assessment_json": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043/assessment.json"
+        },
+        "aggregate": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.134742772562533,
+          "mean_validation_score": 0.005787396258122697,
+          "mean_test_score": -0.0016331676915312412,
+          "median_test_score": -0.0024790401294242205,
+          "positive_test_ratio": 0.5,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.12895537630441029,
+          "mean_validation_test_gap": 0.007420563949653939,
+          "mean_test_return": -0.0016331676915312412,
+          "mean_test_hold_return": 0.0728996397255943,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333
+        },
+        "failed_checks": [
+          "median_test_score",
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ]
+      },
+      "assessment": {
+        "run_dir": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043",
+        "verdict": "fail",
+        "selection_metric": "total_return",
+        "rules": {
+          "min_positive_test_ratio": 0.5,
+          "min_test_outperformed_hold_ratio": 0.5,
+          "min_median_test_score": 0.0,
+          "min_mean_test_return": 0.0,
+          "max_mean_test_drawdown": 0.2
+        },
+        "aggregate_snapshot": {
+          "selection_metric": "total_return",
+          "split_count": 4,
+          "candidate_count": 8,
+          "min_trades": 1,
+          "mean_train_score": 0.134742772562533,
+          "mean_validation_score": 0.005787396258122697,
+          "mean_test_score": -0.0016331676915312412,
+          "median_test_score": -0.0024790401294242205,
+          "positive_test_ratio": 0.5,
+          "test_outperformed_hold_ratio": 0.0,
+          "mean_train_validation_gap": 0.12895537630441029,
+          "mean_validation_test_gap": 0.007420563949653939,
+          "mean_test_return": -0.0016331676915312412,
+          "mean_test_hold_return": 0.0728996397255943,
+          "unique_parameter_pairs": 2,
+          "parameter_change_ratio": 0.3333333333333333,
+          "mean_test_drawdown": 0.041863210952079496
+        },
+        "checks": {
+          "median_test_score": {
+            "passed": false,
+            "message": "Median test score stayed below the minimum threshold."
+          },
+          "positive_test_ratio": {
+            "passed": true,
+            "message": "Enough test windows stayed above zero."
+          },
+          "test_outperformed_hold_ratio": {
+            "passed": false,
+            "message": "The strategy lost to buy-and-hold too often."
+          },
+          "mean_test_return": {
+            "passed": false,
+            "message": "Mean out-of-sample return stayed negative."
+          },
+          "mean_test_drawdown": {
+            "passed": true,
+            "message": "Mean test drawdown stayed within the risk budget."
+          }
+        },
+        "failed_checks": [
+          "median_test_score",
+          "test_outperformed_hold_ratio",
+          "mean_test_return"
+        ],
+        "selected_parameter_pairs": [
+          [
+            144,
+            288
+          ],
+          [
+            168,
+            312
+          ]
+        ]
+      },
+      "error_message": null,
+      "visuals": {
+        "hold_comparison": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043/plots/hold_comparison.png",
+        "overfitting": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043/plots/overfitting.png",
+        "hold_comparison_run_rel": "plots/hold_comparison.png",
+        "overfitting_run_rel": "plots/overfitting.png",
+        "hold_comparison_loop_rel": "runs/BTC-USD_20260412_152043/plots/hold_comparison.png",
+        "overfitting_loop_rel": "runs/BTC-USD_20260412_152043/plots/overfitting.png"
+      },
+      "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/runs/BTC-USD_20260412_152043/summary_ko.md",
+      "summary_ko_loop_rel": "runs/BTC-USD_20260412_152043/summary_ko.md"
+    }
+  ],
+  "summary_ko_path": "examples/agent_loop_runs/BTC-USD_20260412_152029/loop_summary_ko.md"
+}

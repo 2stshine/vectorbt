@@ -1,0 +1,73 @@
+{
+  "run_dir": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_160856",
+  "verdict": "fail",
+  "selection_metric": "sharpe_ratio",
+  "rules": {
+    "min_positive_test_ratio": 0.5,
+    "min_test_outperformed_hold_ratio": 0.5,
+    "min_median_test_score": 0.0,
+    "min_mean_test_return": 0.0,
+    "max_mean_test_drawdown": 0.2
+  },
+  "aggregate_snapshot": {
+    "selection_metric": "sharpe_ratio",
+    "split_count": 6,
+    "candidate_count": 8,
+    "min_trades": 1,
+    "mean_train_score": -2.6902919177069506,
+    "mean_validation_score": -0.9436332264650162,
+    "mean_test_score": -2.9576945408285673,
+    "median_test_score": -2.1025291354640094,
+    "positive_test_ratio": 0.16666666666666666,
+    "test_outperformed_hold_ratio": 0.0,
+    "mean_train_validation_gap": -1.7466586912419342,
+    "mean_validation_test_gap": 2.0140613143635515,
+    "mean_test_return": -0.03410249607355242,
+    "mean_test_hold_return": 0.025793471214783342,
+    "unique_parameter_pairs": 3,
+    "parameter_change_ratio": 0.4,
+    "mean_test_drawdown": 0.07328231041284572
+  },
+  "checks": {
+    "median_test_score": {
+      "passed": false,
+      "message": "Median test score stayed below the minimum threshold."
+    },
+    "positive_test_ratio": {
+      "passed": false,
+      "message": "Too few test windows stayed above zero."
+    },
+    "test_outperformed_hold_ratio": {
+      "passed": false,
+      "message": "The strategy lost to buy-and-hold too often."
+    },
+    "mean_test_return": {
+      "passed": false,
+      "message": "Mean out-of-sample return stayed negative."
+    },
+    "mean_test_drawdown": {
+      "passed": true,
+      "message": "Mean test drawdown stayed within the risk budget."
+    }
+  },
+  "failed_checks": [
+    "median_test_score",
+    "positive_test_ratio",
+    "test_outperformed_hold_ratio",
+    "mean_test_return"
+  ],
+  "selected_parameter_pairs": [
+    [
+      96,
+      144
+    ],
+    [
+      24,
+      96
+    ],
+    [
+      36,
+      144
+    ]
+  ]
+}

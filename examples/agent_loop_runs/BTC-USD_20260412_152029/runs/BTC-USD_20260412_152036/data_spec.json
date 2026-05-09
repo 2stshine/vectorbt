@@ -1,0 +1,14 @@
+{
+  "symbol": "BTC-USD",
+  "period": "60d",
+  "interval": "5m",
+  "freq": "5min",
+  "train_days": 35,
+  "validation_days": 10,
+  "test_days": 10,
+  "n_splits": 4,
+  "bars_per_day": 288,
+  "train_bars": 10080,
+  "validation_bars": 2880,
+  "test_bars": 2880
+}

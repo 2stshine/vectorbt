@@ -1,0 +1,20 @@
+{
+  "promising_families": {},
+  "weak_families": {
+    "ma_crossover_ls": 2
+  },
+  "family_last_seen": {
+    "ma_crossover_ls": 1
+  },
+  "success_patterns_ko": [],
+  "failure_patterns_ko": [
+    "ma_crossover_ls: Long Hold를 이기지 못하는 경향이 있습니다.",
+    "ma_crossover_ls: validation 대비 test 성과 하락폭이 커서 오버피팅 의심이 있습니다."
+  ],
+  "observations_ko": [
+    "ma_crossover_ls: 최근 선택 후보는 fast_window=6, slow_window=72, fast_window=36, slow_window=144 쪽으로 모였습니다."
+  ],
+  "meta_reflections_ko": [
+    "최근 여러 세대가 연속 실패해서 탐색 비중을 높이고 패밀리 전환을 더 빠르게 하도록 조정했습니다. 홀드 초과 성능이 없어서 성과 좋은 계보만 파는 대신 넓게 분기하는 선택 전략을 유지합니다. validation 대비 test 하락폭이 커서 stage 기준을 조금 더 보수적으로 만들었습니다."
+  ]
+}

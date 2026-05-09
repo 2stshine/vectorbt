@@ -1,0 +1,85 @@
+{
+  "run_dir": "examples/hyperagent_vbt_smoke/BTC_USDT_USDT_20260505_104213/gen_0001/stage_runs/BTC_USDT_USDT_20260505_104234",
+  "verdict": "fail",
+  "selection_metric": "sharpe_ratio",
+  "rules": {
+    "min_positive_test_ratio": 0.5,
+    "min_test_outperformed_hold_ratio": 0.5,
+    "min_median_test_score": 0.0,
+    "min_mean_test_return": 0.0,
+    "max_mean_test_drawdown": 0.2
+  },
+  "aggregate_snapshot": {
+    "selection_metric": "sharpe_ratio",
+    "split_count": 2,
+    "candidate_count": 6,
+    "candidate_grid_size": 2,
+    "strategy_family": "ma_crossover_ls",
+    "strategy_name": "ma_crossover_ls",
+    "min_trades": 1,
+    "mean_train_score": 1.7365933415971075,
+    "mean_validation_score": 7.186193045645231,
+    "mean_test_score": -4.394395801366123,
+    "median_test_score": -4.394395801366123,
+    "positive_test_ratio": 0.5,
+    "test_outperformed_hold_ratio": 0.0,
+    "mean_train_validation_gap": -5.449599704048123,
+    "mean_validation_test_gap": 11.580588847011354,
+    "mean_test_return": -0.016597852376890272,
+    "mean_test_hold_return": 0.053345886901211434,
+    "unique_candidate_count": 2,
+    "candidate_change_ratio": 1.0,
+    "mean_test_drawdown": 0.07410828732577024
+  },
+  "checks": {
+    "median_test_score": {
+      "passed": false,
+      "message": "Median test score stayed below the minimum threshold."
+    },
+    "positive_test_ratio": {
+      "passed": true,
+      "message": "Enough test windows stayed above zero."
+    },
+    "test_outperformed_hold_ratio": {
+      "passed": false,
+      "message": "The strategy lost to buy-and-hold too often."
+    },
+    "mean_test_return": {
+      "passed": false,
+      "message": "Mean out-of-sample return stayed negative."
+    },
+    "mean_test_drawdown": {
+      "passed": true,
+      "message": "Mean test drawdown stayed within the risk budget."
+    }
+  },
+  "failed_checks": [
+    "median_test_score",
+    "test_outperformed_hold_ratio",
+    "mean_test_return"
+  ],
+  "selected_candidates": [
+    {
+      "candidate_id": "ma_crossover_ls|fast_window=6,slow_window=72",
+      "family": "ma_crossover_ls",
+      "candidate_label": "fast_window=6, slow_window=72",
+      "params_json": "{\"fast_window\": 6, \"slow_window\": 72}"
+    },
+    {
+      "candidate_id": "ma_crossover_ls|fast_window=36,slow_window=144",
+      "family": "ma_crossover_ls",
+      "candidate_label": "fast_window=36, slow_window=144",
+      "params_json": "{\"fast_window\": 36, \"slow_window\": 144}"
+    }
+  ],
+  "selected_parameter_pairs": [
+    [
+      6,
+      72
+    ],
+    [
+      36,
+      144
+    ]
+  ]
+}

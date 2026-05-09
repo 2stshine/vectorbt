@@ -1,0 +1,77 @@
+{
+  "run_dir": "examples/agent_loop_runs/BTC_USDT_20260412_160856/runs/BTC_USDT_20260412_161114",
+  "verdict": "fail",
+  "selection_metric": "total_return",
+  "rules": {
+    "min_positive_test_ratio": 0.5,
+    "min_test_outperformed_hold_ratio": 0.5,
+    "min_median_test_score": 0.0,
+    "min_mean_test_return": 0.0,
+    "max_mean_test_drawdown": 0.2
+  },
+  "aggregate_snapshot": {
+    "selection_metric": "total_return",
+    "split_count": 6,
+    "candidate_count": 6,
+    "min_trades": 1,
+    "mean_train_score": -0.05466384946666151,
+    "mean_validation_score": -0.019478535372532368,
+    "mean_test_score": -0.024731182287968504,
+    "median_test_score": -0.01723371834878418,
+    "positive_test_ratio": 0.16666666666666666,
+    "test_outperformed_hold_ratio": 0.0,
+    "mean_train_validation_gap": -0.035185314094129144,
+    "mean_validation_test_gap": 0.0052526469154361355,
+    "mean_test_return": -0.024731182287968504,
+    "mean_test_hold_return": 0.02636615343483419,
+    "unique_parameter_pairs": 4,
+    "parameter_change_ratio": 0.8,
+    "mean_test_drawdown": 0.06617802090118415
+  },
+  "checks": {
+    "median_test_score": {
+      "passed": false,
+      "message": "Median test score stayed below the minimum threshold."
+    },
+    "positive_test_ratio": {
+      "passed": false,
+      "message": "Too few test windows stayed above zero."
+    },
+    "test_outperformed_hold_ratio": {
+      "passed": false,
+      "message": "The strategy lost to buy-and-hold too often."
+    },
+    "mean_test_return": {
+      "passed": false,
+      "message": "Mean out-of-sample return stayed negative."
+    },
+    "mean_test_drawdown": {
+      "passed": true,
+      "message": "Mean test drawdown stayed within the risk budget."
+    }
+  },
+  "failed_checks": [
+    "median_test_score",
+    "positive_test_ratio",
+    "test_outperformed_hold_ratio",
+    "mean_test_return"
+  ],
+  "selected_parameter_pairs": [
+    [
+      96,
+      144
+    ],
+    [
+      36,
+      144
+    ],
+    [
+      24,
+      144
+    ],
+    [
+      24,
+      96
+    ]
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "loop_dir": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422",
+  "run_config": {
+    "symbol": "BTC/USDT:USDT",
+    "data_source": "ccxt",
+    "exchange": "binanceusdm",
+    "period": "90d",
+    "start": null,
+    "end": null,
+    "interval": "5m",
+    "freq": null,
+    "train_days": 20,
+    "validation_days": 5,
+    "test_days": 5,
+    "n_splits": 2,
+    "direction": "both",
+    "fees": 0.00015,
+    "init_cash": 1000.0,
+    "max_generations": 3,
+    "llm_enabled": false,
+    "llm_model": "gpt-4o-mini",
+    "llm_api_key_env": "OPENAI_API_KEY",
+    "llm_base_url": "https://api.openai.com/v1"
+  },
+  "meta_policy": {
+    "parent_selection": "score_child_prop",
+    "stage_min_median_test_score": -0.05,
+    "stage_min_positive_test_ratio": 0.25,
+    "stage_candidate_cap": 6,
+    "stage_n_splits": 2,
+    "staged_score_frac": 0.35,
+    "exploration_prob": 0.59,
+    "family_switch_after_failures": 1,
+    "max_candidate_count": 16,
+    "min_candidate_count": 4,
+    "top_k_archive_context": 6,
+    "focus_on_selected": true,
+    "widen_after_failure": true
+  },
+  "memory": {
+    "promising_families": {},
+    "weak_families": {
+      "ma_crossover_ls": 1,
+      "rsi_reversion_ls": 1,
+      "channel_breakout_ls": 1
+    },
+    "family_last_seen": {
+      "ma_crossover_ls": 0,
+      "rsi_reversion_ls": 1,
+      "channel_breakout_ls": 2
+    },
+    "success_patterns_ko": [],
+    "failure_patterns_ko": [
+      "ma_crossover_ls: Long Hold\ub97c \uc774\uae30\uc9c0 \ubabb\ud558\ub294 \uacbd\ud5a5\uc774 \uc788\uc2b5\ub2c8\ub2e4.",
+      "rsi_reversion_ls: Long Hold\ub97c \uc774\uae30\uc9c0 \ubabb\ud558\ub294 \uacbd\ud5a5\uc774 \uc788\uc2b5\ub2c8\ub2e4.",
+      "channel_breakout_ls: Long Hold\ub97c \uc774\uae30\uc9c0 \ubabb\ud558\ub294 \uacbd\ud5a5\uc774 \uc788\uc2b5\ub2c8\ub2e4."
+    ],
+    "observations_ko": [
+      "ma_crossover_ls: \ucd5c\uadfc \uc120\ud0dd \ud6c4\ubcf4\ub294 fast_window=6, slow_window=72, fast_window=36, slow_window=144 \ucabd\uc73c\ub85c \ubaa8\uc600\uc2b5\ub2c8\ub2e4.",
+      "rsi_reversion_ls: \ucd5c\uadfc \uc120\ud0dd \ud6c4\ubcf4\ub294 rsi_window=21, long_entry_threshold=25, long_exit_threshold=55, short_entry_threshold=75, rsi_window=21, long_entry_threshold=30, long_exit_threshold=55, short_entry_threshold=80 \ucabd\uc73c\ub85c \ubaa8\uc600\uc2b5\ub2c8\ub2e4.",
+      "channel_breakout_ls: \ucd5c\uadfc \uc120\ud0dd \ud6c4\ubcf4\ub294 breakout_window=144, exit_window=24, breakout_window=144, exit_window=48 \ucabd\uc73c\ub85c \ubaa8\uc600\uc2b5\ub2c8\ub2e4."
+    ],
+    "meta_reflections_ko": [
+      "\ucd5c\uadfc \uc5ec\ub7ec \uc138\ub300\uac00 \uc5f0\uc18d \uc2e4\ud328\ud574\uc11c \ud0d0\uc0c9 \ube44\uc911\uc744 \ub192\uc774\uace0 \ud328\ubc00\ub9ac \uc804\ud658\uc744 \ub354 \ube60\ub974\uac8c \ud558\ub3c4\ub85d \uc870\uc815\ud588\uc2b5\ub2c8\ub2e4. \ud640\ub4dc \ucd08\uacfc \uc131\ub2a5\uc774 \uc5c6\uc5b4\uc11c \uc131\uacfc \uc88b\uc740 \uacc4\ubcf4\ub9cc \ud30c\ub294 \ub300\uc2e0 \ub113\uac8c \ubd84\uae30\ud558\ub294 \uc120\ud0dd \uc804\ub7b5\uc744 \uc720\uc9c0\ud569\ub2c8\ub2e4."
+    ]
+  },
+  "stop_reason": "max_generations_reached",
+  "archive_path": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/archive.jsonl",
+  "best_gen_id": 1,
+  "best_score": 27.06549021841161,
+  "history": [
+    {
+      "gen_id": 0,
+      "created_at": "2026-05-05T01:44:57.663728+00:00",
+      "parent_gen_id": null,
+      "parent_selection_method": "score_child_prop",
+      "program": {
+        "family": "ma_crossover_ls",
+        "strategy_name": "ma_crossover_ls",
+        "window_spec": "6,12,18,24,36,48,72,96,144",
+        "search_space": {
+          "fast_window": [
+            6,
+            12,
+            18,
+            24,
+            36,
+            48,
+            72,
+            96,
+            144
+          ],
+          "slow_window": [
+            6,
+            12,
+            18,
+            24,
+            36,
+            48,
+            72,
+            96,
+            144
+          ]
+        },
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "both",
+        "hypothesis_ko": "\ucd08\uae30 \uc138\ub300\uc5d0\uc11c\ub294 `ma_crossover_ls` \ud328\ubc00\ub9ac\ub85c \uae30\uc900\uc120\uc744 \uc7a1\uace0 \uc774\ud6c4 \uc138\ub300\uac00 \uc5ec\uae30\uc11c \ubd84\uae30\ud569\ub2c8\ub2e4.",
+        "rationale_ko": "\uccab \uc138\ub300\uc758 seed \uc804\ub7b5\uc744 \ud3c9\uac00\ud574 \uc774\ud6c4 \uc138\ub300\uac00 \ube44\uad50\ud560 \ucd9c\ubc1c\uc810\uc744 \ub9cc\ub4ed\ub2c8\ub2e4.",
+        "notes_ko": [
+          "seed \ud328\ubc00\ub9ac: ma_crossover_ls"
+        ],
+        "source": "task_agent_seed",
+        "program_id": "ma_crossover_ls-bc51d567a6da"
+      },
+      "task_rationale_ko": "\uccab \uc138\ub300\uc758 seed \uc804\ub7b5\uc744 \ud3c9\uac00\ud574 \uc774\ud6c4 \uc138\ub300\uac00 \ube44\uad50\ud560 \ucd9c\ubc1c\uc810\uc744 \ub9cc\ub4ed\ub2c8\ub2e4.",
+      "meta_reflection_ko": "\ucd5c\uadfc \uc5ec\ub7ec \uc138\ub300\uac00 \uc5f0\uc18d \uc2e4\ud328\ud574\uc11c \ud0d0\uc0c9 \ube44\uc911\uc744 \ub192\uc774\uace0 \ud328\ubc00\ub9ac \uc804\ud658\uc744 \ub354 \ube60\ub974\uac8c \ud558\ub3c4\ub85d \uc870\uc815\ud588\uc2b5\ub2c8\ub2e4. \ud640\ub4dc \ucd08\uacfc \uc131\ub2a5\uc774 \uc5c6\uc5b4\uc11c \uc131\uacfc \uc88b\uc740 \uacc4\ubcf4\ub9cc \ud30c\ub294 \ub300\uc2e0 \ub113\uac8c \ubd84\uae30\ud558\ub294 \uc120\ud0dd \uc804\ub7b5\uc744 \uc720\uc9c0\ud569\ub2c8\ub2e4.",
+      "stage_manifest_path": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/stage_runs/BTC_USDT_USDT_20260505_104422/run_manifest.json",
+      "full_manifest_path": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/run_manifest.json",
+      "stage_passed": true,
+      "full_verdict": "fail",
+      "score_value": 23.68104268527643,
+      "valid_parent": true,
+      "failed_checks": [
+        "median_test_score",
+        "test_outperformed_hold_ratio",
+        "mean_test_return"
+      ],
+      "aggregate": {
+        "selection_metric": "total_return",
+        "split_count": 2,
+        "candidate_count": 8,
+        "candidate_grid_size": 2,
+        "strategy_family": "ma_crossover_ls",
+        "strategy_name": "ma_crossover_ls",
+        "min_trades": 1,
+        "mean_train_score": 0.045212596866742616,
+        "mean_validation_score": 0.05230328987367909,
+        "mean_test_score": -0.016510698327596173,
+        "median_test_score": -0.016510698327596173,
+        "positive_test_ratio": 0.5,
+        "test_outperformed_hold_ratio": 0.0,
+        "mean_train_validation_gap": -0.007090693006936478,
+        "mean_validation_test_gap": 0.06881398820127527,
+        "mean_test_return": -0.016510698327596173,
+        "mean_test_hold_return": 0.05344149739589602,
+        "unique_candidate_count": 2,
+        "candidate_change_ratio": 1.0,
+        "mean_test_drawdown": 0.07410828732577024
+      },
+      "selected_candidates": [
+        {
+          "candidate_id": "ma_crossover_ls|fast_window=6,slow_window=72",
+          "family": "ma_crossover_ls",
+          "candidate_label": "fast_window=6, slow_window=72",
+          "params_json": "{\"fast_window\": 6, \"slow_window\": 72}"
+        },
+        {
+          "candidate_id": "ma_crossover_ls|fast_window=36,slow_window=144",
+          "family": "ma_crossover_ls",
+          "candidate_label": "fast_window=36, slow_window=144",
+          "params_json": "{\"fast_window\": 36, \"slow_window\": 144}"
+        }
+      ],
+      "llm_used_task": false,
+      "llm_used_meta": false,
+      "child_count": 1
+    },
+    {
+      "gen_id": 1,
+      "created_at": "2026-05-05T01:45:17.016153+00:00",
+      "parent_gen_id": 0,
+      "parent_selection_method": "score_child_prop",
+      "program": {
+        "family": "rsi_reversion_ls",
+        "strategy_name": "rsi_reversion_ls",
+        "window_spec": null,
+        "search_space": {
+          "long_entry_threshold": [
+            20,
+            25,
+            30
+          ],
+          "long_exit_threshold": [
+            45,
+            50,
+            55
+          ],
+          "rsi_window": [
+            7,
+            14,
+            21
+          ],
+          "short_entry_threshold": [
+            70,
+            75,
+            80
+          ]
+        },
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "sharpe_ratio",
+        "direction": "both",
+        "hypothesis_ko": "\uae30\uc874 \ud328\ubc00\ub9ac\uc758 \uad6c\uc870\uc801 \uc57d\uc810\uc744 \ud53c\ud558\uae30 \uc704\ud574 \ub2e4\ub978 \uc2e0\ud638 \uad6c\uc870\ub97c \uc2dc\ud5d8\ud569\ub2c8\ub2e4.",
+        "rationale_ko": "`ma_crossover_ls` \ud328\ubc00\ub9ac\uac00 \ubc18\ubcf5\uc801\uc73c\ub85c \uc57d\ud574\uc11c `rsi_reversion_ls` \ud328\ubc00\ub9ac\ub85c \uc804\ud658\ud569\ub2c8\ub2e4.",
+        "notes_ko": [
+          "\ud328\ubc00\ub9ac \ub85c\ud14c\uc774\uc158\uc744 \uc801\uc6a9\ud588\uc2b5\ub2c8\ub2e4."
+        ],
+        "source": "task_agent_heuristic",
+        "program_id": "rsi_reversion_ls-5ab1833e00b8"
+      },
+      "task_rationale_ko": "`ma_crossover_ls` \ud328\ubc00\ub9ac\uac00 \ubc18\ubcf5\uc801\uc73c\ub85c \uc57d\ud574\uc11c `rsi_reversion_ls` \ud328\ubc00\ub9ac\ub85c \uc804\ud658\ud569\ub2c8\ub2e4.",
+      "meta_reflection_ko": "\ucd5c\uadfc \uc5ec\ub7ec \uc138\ub300\uac00 \uc5f0\uc18d \uc2e4\ud328\ud574\uc11c \ud0d0\uc0c9 \ube44\uc911\uc744 \ub192\uc774\uace0 \ud328\ubc00\ub9ac \uc804\ud658\uc744 \ub354 \ube60\ub974\uac8c \ud558\ub3c4\ub85d \uc870\uc815\ud588\uc2b5\ub2c8\ub2e4. \ud640\ub4dc \ucd08\uacfc \uc131\ub2a5\uc774 \uc5c6\uc5b4\uc11c \uc131\uacfc \uc88b\uc740 \uacc4\ubcf4\ub9cc \ud30c\ub294 \ub300\uc2e0 \ub113\uac8c \ubd84\uae30\ud558\ub294 \uc120\ud0dd \uc804\ub7b5\uc744 \uc720\uc9c0\ud569\ub2c8\ub2e4.",
+      "stage_manifest_path": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0001/stage_runs/BTC_USDT_USDT_20260505_104457/run_manifest.json",
+      "full_manifest_path": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0001/full_runs/BTC_USDT_USDT_20260505_104507/run_manifest.json",
+      "stage_passed": true,
+      "full_verdict": "fail",
+      "score_value": 27.06549021841161,
+      "valid_parent": true,
+      "failed_checks": [
+        "test_outperformed_hold_ratio",
+        "mean_test_return"
+      ],
+      "aggregate": {
+        "selection_metric": "sharpe_ratio",
+        "split_count": 2,
+        "candidate_count": 8,
+        "candidate_grid_size": 2,
+        "strategy_family": "rsi_reversion_ls",
+        "strategy_name": "rsi_reversion_ls",
+        "min_trades": 1,
+        "mean_train_score": 8.17688660019901,
+        "mean_validation_score": -5.817737473126595,
+        "mean_test_score": 0.2507540993379508,
+        "median_test_score": 0.2507540993379508,
+        "positive_test_ratio": 0.5,
+        "test_outperformed_hold_ratio": 0.0,
+        "mean_train_validation_gap": 13.994624073325605,
+        "mean_validation_test_gap": -6.068491572464546,
+        "mean_test_return": -0.0012869160049880294,
+        "mean_test_hold_return": 0.053200506559978634,
+        "unique_candidate_count": 2,
+        "candidate_change_ratio": 1.0,
+        "mean_test_drawdown": 0.04098778748431965
+      },
+      "selected_candidates": [
+        {
+          "candidate_id": "rsi_reversion_ls|rsi_window=21,long_entry_threshold=25,long_exit_threshold=55,short_entry_threshold=75",
+          "family": "rsi_reversion_ls",
+          "candidate_label": "rsi_window=21, long_entry_threshold=25, long_exit_threshold=55, short_entry_threshold=75",
+          "params_json": "{\"long_entry_threshold\": 25, \"long_exit_threshold\": 55, \"rsi_window\": 21, \"short_entry_threshold\": 75}"
+        },
+        {
+          "candidate_id": "rsi_reversion_ls|rsi_window=21,long_entry_threshold=30,long_exit_threshold=55,short_entry_threshold=80",
+          "family": "rsi_reversion_ls",
+          "candidate_label": "rsi_window=21, long_entry_threshold=30, long_exit_threshold=55, short_entry_threshold=80",
+          "params_json": "{\"long_entry_threshold\": 30, \"long_exit_threshold\": 55, \"rsi_window\": 21, \"short_entry_threshold\": 80}"
+        }
+      ],
+      "llm_used_task": false,
+      "llm_used_meta": false,
+      "child_count": 1
+    },
+    {
+      "gen_id": 2,
+      "created_at": "2026-05-05T01:45:33.035358+00:00",
+      "parent_gen_id": 1,
+      "parent_selection_method": "score_child_prop",
+      "program": {
+        "family": "channel_breakout_ls",
+        "strategy_name": "channel_breakout_ls",
+        "window_spec": null,
+        "search_space": {
+          "breakout_window": [
+            24,
+            48,
+            96,
+            144
+          ],
+          "exit_window": [
+            6,
+            12,
+            24,
+            48
+          ]
+        },
+        "candidate_count": 8,
+        "min_trades": 1,
+        "selection_metric": "total_return",
+        "direction": "both",
+        "hypothesis_ko": "\uae30\uc874 \ud328\ubc00\ub9ac\uc758 \uad6c\uc870\uc801 \uc57d\uc810\uc744 \ud53c\ud558\uae30 \uc704\ud574 \ub2e4\ub978 \uc2e0\ud638 \uad6c\uc870\ub97c \uc2dc\ud5d8\ud569\ub2c8\ub2e4.",
+        "rationale_ko": "`rsi_reversion_ls` \ud328\ubc00\ub9ac\uac00 \ubc18\ubcf5\uc801\uc73c\ub85c \uc57d\ud574\uc11c `channel_breakout_ls` \ud328\ubc00\ub9ac\ub85c \uc804\ud658\ud569\ub2c8\ub2e4.",
+        "notes_ko": [
+          "\ud328\ubc00\ub9ac \ub85c\ud14c\uc774\uc158\uc744 \uc801\uc6a9\ud588\uc2b5\ub2c8\ub2e4."
+        ],
+        "source": "task_agent_heuristic",
+        "program_id": "channel_breakout_ls-6a4d07b50738"
+      },
+      "task_rationale_ko": "`rsi_reversion_ls` \ud328\ubc00\ub9ac\uac00 \ubc18\ubcf5\uc801\uc73c\ub85c \uc57d\ud574\uc11c `channel_breakout_ls` \ud328\ubc00\ub9ac\ub85c \uc804\ud658\ud569\ub2c8\ub2e4.",
+      "meta_reflection_ko": "\ucd5c\uadfc \uc5ec\ub7ec \uc138\ub300\uac00 \uc5f0\uc18d \uc2e4\ud328\ud574\uc11c \ud0d0\uc0c9 \ube44\uc911\uc744 \ub192\uc774\uace0 \ud328\ubc00\ub9ac \uc804\ud658\uc744 \ub354 \ube60\ub974\uac8c \ud558\ub3c4\ub85d \uc870\uc815\ud588\uc2b5\ub2c8\ub2e4. \ud640\ub4dc \ucd08\uacfc \uc131\ub2a5\uc774 \uc5c6\uc5b4\uc11c \uc131\uacfc \uc88b\uc740 \uacc4\ubcf4\ub9cc \ud30c\ub294 \ub300\uc2e0 \ub113\uac8c \ubd84\uae30\ud558\ub294 \uc120\ud0dd \uc804\ub7b5\uc744 \uc720\uc9c0\ud569\ub2c8\ub2e4.",
+      "stage_manifest_path": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0002/stage_runs/BTC_USDT_USDT_20260505_104517/run_manifest.json",
+      "full_manifest_path": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0002/full_runs/BTC_USDT_USDT_20260505_104525/run_manifest.json",
+      "stage_passed": true,
+      "full_verdict": "fail",
+      "score_value": 23.904265313439296,
+      "valid_parent": true,
+      "failed_checks": [
+        "median_test_score",
+        "test_outperformed_hold_ratio",
+        "mean_test_return"
+      ],
+      "aggregate": {
+        "selection_metric": "total_return",
+        "split_count": 2,
+        "candidate_count": 8,
+        "candidate_grid_size": 2,
+        "strategy_family": "channel_breakout_ls",
+        "strategy_name": "channel_breakout_ls",
+        "min_trades": 1,
+        "mean_train_score": -0.046419099349532644,
+        "mean_validation_score": 0.04396403001350353,
+        "mean_test_score": -0.016486109608861738,
+        "median_test_score": -0.016486109608861738,
+        "positive_test_ratio": 0.5,
+        "test_outperformed_hold_ratio": 0.0,
+        "mean_train_validation_gap": -0.09038312936303619,
+        "mean_validation_test_gap": 0.06045013962236527,
+        "mean_test_return": -0.016486109608861738,
+        "mean_test_hold_return": 0.053200506559978634,
+        "unique_candidate_count": 2,
+        "candidate_change_ratio": 1.0,
+        "mean_test_drawdown": 0.051872085025054304
+      },
+      "selected_candidates": [
+        {
+          "candidate_id": "channel_breakout_ls|breakout_window=144,exit_window=24",
+          "family": "channel_breakout_ls",
+          "candidate_label": "breakout_window=144, exit_window=24",
+          "params_json": "{\"breakout_window\": 144, \"exit_window\": 24}"
+        },
+        {
+          "candidate_id": "channel_breakout_ls|breakout_window=144,exit_window=48",
+          "family": "channel_breakout_ls",
+          "candidate_label": "breakout_window=144, exit_window=48",
+          "params_json": "{\"breakout_window\": 144, \"exit_window\": 48}"
+        }
+      ],
+      "llm_used_task": false,
+      "llm_used_meta": false,
+      "child_count": 0
+    }
+  ],
+  "latest": {
+    "latest_symlink": "examples/hyperagent_vbt_smoke2/latest",
+    "latest_json": "examples/hyperagent_vbt_smoke2/latest_run.json"
+  }
+}
