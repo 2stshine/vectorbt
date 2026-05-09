@@ -19,6 +19,7 @@ import pandas as pd
 import vectorbt as vbt
 
 
+DEFAULT_MODE = "full"
 DEFAULT_WINDOWS = (6, 12, 18, 24, 36, 48, 72, 96, 144)
 DEFAULT_OUTPUT_ROOT = Path("examples") / "walk_forward_ccxt_runs"
 PERIOD_PATTERN = re.compile(r"^\s*(\d+)\s*([A-Za-z]+)\s*$")
@@ -33,10 +34,29 @@ BARS_PER_DAY_BY_TIMEFRAME = {
     "1h": 24,
     "1d": 1,
 }
+MODE_PRESETS = {
+    "fast": {
+        "period": "120d",
+        "train_days": 20,
+        "validation_days": 5,
+        "test_days": 5,
+        "n_splits": 3,
+        "top_train_candidates": 3,
+    },
+    "full": {
+        "period": "540d",
+        "train_days": 45,
+        "validation_days": 15,
+        "test_days": 15,
+        "n_splits": 6,
+        "top_train_candidates": 5,
+    },
+}
 
 
 @dataclass(frozen=True)
 class WalkForwardConfig:
+    mode: str = DEFAULT_MODE
     symbol: str = "BTC/USDT:USDT"
     exchange: str = "binanceusdm"
     period: str | None = "540d"
@@ -157,6 +177,21 @@ def parse_windows(value: str) -> tuple[int, ...]:
     if len(windows) < 2:
         raise ValueError("Provide at least two moving-average windows.")
     return windows
+
+
+def resolve_mode_defaults(mode: str) -> dict[str, object]:
+    try:
+        return MODE_PRESETS[mode]
+    except KeyError as exc:
+        raise ValueError(
+            f"Unsupported mode {mode!r}. Choose one of {sorted(MODE_PRESETS)}."
+        ) from exc
+
+
+def with_mode_default(value: object | None, default: object) -> object:
+    if value is None:
+        return default
+    return value
 
 
 def ensure_single_symbol_series(price: pd.Series | pd.DataFrame, symbol: str) -> pd.Series:
@@ -417,6 +452,7 @@ def run_walk_forward(config: WalkForwardConfig, output_dir: Path) -> dict[str, o
     write_plot(selected_fig, selected_plot_path)
 
     summary = {
+        "mode": config.mode,
         "symbol": config.symbol,
         "exchange": config.exchange,
         "timeframe": config.timeframe,
@@ -449,19 +485,20 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Run walk-forward optimization on CCXT crypto futures data.",
     )
+    parser.add_argument("--mode", default=DEFAULT_MODE, choices=tuple(MODE_PRESETS))
     parser.add_argument("--symbol", default="BTC/USDT:USDT")
     parser.add_argument("--exchange", default="binanceusdm")
-    parser.add_argument("--period", default="540d")
+    parser.add_argument("--period", default=None)
     parser.add_argument("--start", default=None)
     parser.add_argument("--end", default=None)
     parser.add_argument("--timeframe", default="5m")
     parser.add_argument("--freq", default="5min")
-    parser.add_argument("--train-days", type=int, default=45)
-    parser.add_argument("--validation-days", type=int, default=15)
-    parser.add_argument("--test-days", type=int, default=15)
-    parser.add_argument("--n-splits", type=int, default=6)
+    parser.add_argument("--train-days", type=int, default=None)
+    parser.add_argument("--validation-days", type=int, default=None)
+    parser.add_argument("--test-days", type=int, default=None)
+    parser.add_argument("--n-splits", type=int, default=None)
     parser.add_argument("--windows", default="6,12,18,24,36,48,72,96,144")
-    parser.add_argument("--top-train-candidates", type=int, default=5)
+    parser.add_argument("--top-train-candidates", type=int, default=None)
     parser.add_argument("--direction", default="both", choices=("longonly", "shortonly", "both"))
     parser.add_argument("--fees", type=float, default=0.00015)
     parser.add_argument("--init-cash", type=float, default=1_000.0)
@@ -473,21 +510,26 @@ def build_argument_parser() -> argparse.ArgumentParser:
 def main() -> int:
     parser = build_argument_parser()
     args = parser.parse_args()
+    mode_defaults = resolve_mode_defaults(args.mode)
 
     config = WalkForwardConfig(
+        mode=args.mode,
         symbol=args.symbol,
         exchange=args.exchange,
-        period=args.period,
+        period=with_mode_default(args.period, mode_defaults["period"]),
         start=args.start,
         end=args.end,
         timeframe=args.timeframe,
         freq=args.freq,
-        train_days=args.train_days,
-        validation_days=args.validation_days,
-        test_days=args.test_days,
-        n_splits=args.n_splits,
+        train_days=with_mode_default(args.train_days, mode_defaults["train_days"]),
+        validation_days=with_mode_default(args.validation_days, mode_defaults["validation_days"]),
+        test_days=with_mode_default(args.test_days, mode_defaults["test_days"]),
+        n_splits=with_mode_default(args.n_splits, mode_defaults["n_splits"]),
         windows=parse_windows(args.windows),
-        top_train_candidates=args.top_train_candidates,
+        top_train_candidates=with_mode_default(
+            args.top_train_candidates,
+            mode_defaults["top_train_candidates"],
+        ),
         direction=args.direction,
         fees=args.fees,
         init_cash=args.init_cash,
