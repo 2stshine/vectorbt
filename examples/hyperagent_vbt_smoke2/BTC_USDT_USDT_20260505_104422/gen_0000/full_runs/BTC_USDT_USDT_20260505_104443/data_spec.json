@@ -1,0 +1,18 @@
+{
+  "symbol": "BTC/USDT:USDT",
+  "data_source": "ccxt",
+  "exchange": "binanceusdm",
+  "period": "90d",
+  "start": null,
+  "end": null,
+  "interval": "5m",
+  "freq": "5min",
+  "train_days": 20,
+  "validation_days": 5,
+  "test_days": 5,
+  "n_splits": 2,
+  "bars_per_day": 288,
+  "train_bars": 5760,
+  "validation_bars": 1440,
+  "test_bars": 1440
+}

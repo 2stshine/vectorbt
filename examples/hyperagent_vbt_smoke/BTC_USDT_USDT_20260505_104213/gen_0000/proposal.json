@@ -1,0 +1,40 @@
+{
+  "family": "ma_crossover_ls",
+  "strategy_name": "ma_crossover_ls",
+  "window_spec": "6,12,18,24,36,48,72,96,144",
+  "search_space": {
+    "fast_window": [
+      6,
+      12,
+      18,
+      24,
+      36,
+      48,
+      72,
+      96,
+      144
+    ],
+    "slow_window": [
+      6,
+      12,
+      18,
+      24,
+      36,
+      48,
+      72,
+      96,
+      144
+    ]
+  },
+  "candidate_count": 8,
+  "min_trades": 1,
+  "selection_metric": "sharpe_ratio",
+  "direction": "both",
+  "hypothesis_ko": "\ucd08\uae30 \uc138\ub300\uc5d0\uc11c\ub294 \ucd94\uc138 \ucd94\uc885\ud615 \ub871/\uc20f MA \ud06c\ub85c\uc2a4\ub85c \uae30\uc900\uc120\uc744 \uc7a1\uc2b5\ub2c8\ub2e4.",
+  "rationale_ko": "\uae30\ubcf8 \uae30\uc900 \uc804\ub7b5\uc744 \uba3c\uc800 \ud3c9\uac00\ud574 \uc774\ud6c4 \uc138\ub300\uac00 \ube44\uad50\ud560 \ucd9c\ubc1c\uc810\uc744 \ub9cc\ub4ed\ub2c8\ub2e4.",
+  "notes_ko": [
+    "seed \uc804\ub7b5\uc785\ub2c8\ub2e4."
+  ],
+  "source": "task_agent_seed",
+  "program_id": "ma_crossover_ls-8f3e43c85934"
+}

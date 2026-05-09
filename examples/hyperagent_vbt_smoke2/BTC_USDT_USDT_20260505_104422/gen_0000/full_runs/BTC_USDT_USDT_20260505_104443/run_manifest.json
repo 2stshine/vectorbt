@@ -1,0 +1,48 @@
+{
+  "run_dir": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443",
+  "verdict": "fail",
+  "files": {
+    "data_spec_json": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/data_spec.json",
+    "strategy_spec_json": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/strategy_spec.json",
+    "summary_json": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/summary.json",
+    "selected_params_csv": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/selected_params.csv",
+    "grid_metrics_csv": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/grid_metrics.csv",
+    "test_timeline_csv": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/test_timeline.csv",
+    "overfitting_timeline_csv": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/overfitting_timeline.csv",
+    "assessment_json": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/assessment.json",
+    "summary_ko_md": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/summary_ko.md",
+    "hold_comparison_png": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/plots/hold_comparison.png",
+    "return_timeline_png": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/plots/return_timeline.png",
+    "overfitting_timeline_png": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/BTC_USDT_USDT_20260505_104443/plots/overfitting_timeline.png"
+  },
+  "aggregate": {
+    "selection_metric": "total_return",
+    "split_count": 2,
+    "candidate_count": 8,
+    "candidate_grid_size": 2,
+    "strategy_family": "ma_crossover_ls",
+    "strategy_name": "ma_crossover_ls",
+    "min_trades": 1,
+    "mean_train_score": 0.045212596866742616,
+    "mean_validation_score": 0.05230328987367909,
+    "mean_test_score": -0.016510698327596173,
+    "median_test_score": -0.016510698327596173,
+    "positive_test_ratio": 0.5,
+    "test_outperformed_hold_ratio": 0.0,
+    "mean_train_validation_gap": -0.007090693006936478,
+    "mean_validation_test_gap": 0.06881398820127527,
+    "mean_test_return": -0.016510698327596173,
+    "mean_test_hold_return": 0.05344149739589602,
+    "unique_candidate_count": 2,
+    "candidate_change_ratio": 1.0
+  },
+  "failed_checks": [
+    "median_test_score",
+    "test_outperformed_hold_ratio",
+    "mean_test_return"
+  ],
+  "latest": {
+    "latest_symlink": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/latest",
+    "latest_json": "examples/hyperagent_vbt_smoke2/BTC_USDT_USDT_20260505_104422/gen_0000/full_runs/latest_run.json"
+  }
+}

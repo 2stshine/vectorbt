@@ -1,0 +1,30 @@
+{
+  "family": "channel_breakout_ls",
+  "strategy_name": "channel_breakout_ls",
+  "window_spec": null,
+  "search_space": {
+    "breakout_window": [
+      24,
+      48,
+      96,
+      144
+    ],
+    "exit_window": [
+      6,
+      12,
+      24,
+      48
+    ]
+  },
+  "candidate_count": 8,
+  "min_trades": 1,
+  "selection_metric": "total_return",
+  "direction": "both",
+  "hypothesis_ko": "\uae30\uc874 \ud328\ubc00\ub9ac\uc758 \uad6c\uc870\uc801 \uc57d\uc810\uc744 \ud53c\ud558\uae30 \uc704\ud574 \ub2e4\ub978 \uc2e0\ud638 \uad6c\uc870\ub97c \uc2dc\ud5d8\ud569\ub2c8\ub2e4.",
+  "rationale_ko": "`rsi_reversion_ls` \ud328\ubc00\ub9ac\uac00 \ubc18\ubcf5\uc801\uc73c\ub85c \uc57d\ud574\uc11c `channel_breakout_ls` \ud328\ubc00\ub9ac\ub85c \uc804\ud658\ud569\ub2c8\ub2e4.",
+  "notes_ko": [
+    "\ud328\ubc00\ub9ac \ub85c\ud14c\uc774\uc158\uc744 \uc801\uc6a9\ud588\uc2b5\ub2c8\ub2e4."
+  ],
+  "source": "task_agent_heuristic",
+  "program_id": "channel_breakout_ls-6a4d07b50738"
+}

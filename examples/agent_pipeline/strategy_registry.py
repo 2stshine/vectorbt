@@ -25,6 +25,9 @@ SUPPORTED_STRATEGY_FAMILIES = (
     "rsi_reversion_ls",
     "channel_breakout_ls",
     "ma_rsi_filter_ls",
+    "bbands_reversion_ls",
+    "macd_signal_ls",
+    "stoch_reversion_ls",
 )
 FAMILY_PARAMETER_ORDER = {
     "ma_crossover_ls": ("fast_window", "slow_window"),
@@ -42,12 +45,30 @@ FAMILY_PARAMETER_ORDER = {
         "long_filter_max",
         "short_filter_min",
     ),
+    "bbands_reversion_ls": (
+        "bb_window",
+        "bb_alpha",
+    ),
+    "macd_signal_ls": (
+        "fast_window",
+        "slow_window",
+        "signal_window",
+    ),
+    "stoch_reversion_ls": (
+        "k_window",
+        "d_window",
+        "lower_threshold",
+        "upper_threshold",
+    ),
 }
 FAMILY_DESCRIPTIONS = {
     "ma_crossover_ls": "Explicit long/short moving-average crossover strategy.",
     "rsi_reversion_ls": "RSI mean-reversion strategy that buys oversold and shorts overbought.",
     "channel_breakout_ls": "Donchian-style breakout strategy with explicit long/short channel exits.",
     "ma_rsi_filter_ls": "MA crossover entries filtered by RSI regime for long and short trades.",
+    "bbands_reversion_ls": "Bollinger-band mean-reversion strategy with symmetric long/short entries.",
+    "macd_signal_ls": "MACD signal-line crossover strategy for directional momentum.",
+    "stoch_reversion_ls": "Stochastic-oscillator mean-reversion strategy for overbought and oversold swings.",
 }
 
 
@@ -157,6 +178,28 @@ def default_search_space_for_family(
             "short_filter_min": [40, 45],
         }
 
+    if normalized_family == "bbands_reversion_ls":
+        return {
+            "bb_window": [14, 20, 28, 40],
+            "bb_alpha": [1.5, 2.0, 2.5],
+        }
+
+    if normalized_family == "macd_signal_ls":
+        ma_windows = windows[: min(len(windows), 7)]
+        return {
+            "fast_window": ma_windows,
+            "slow_window": ma_windows,
+            "signal_window": [5, 9, 12, 18],
+        }
+
+    if normalized_family == "stoch_reversion_ls":
+        return {
+            "k_window": [9, 14, 21],
+            "d_window": [3, 5, 7],
+            "lower_threshold": [15, 20, 25],
+            "upper_threshold": [75, 80, 85],
+        }
+
     raise AssertionError(f"Unhandled family: {normalized_family}")
 
 
@@ -236,6 +279,22 @@ def _candidate_is_valid(family: str, params: dict[str, int | float]) -> bool:
         return (
             int(params["fast_window"]) < int(params["slow_window"])
             and float(params["short_filter_min"]) < float(params["long_filter_max"])
+        )
+
+    if family == "bbands_reversion_ls":
+        return float(params["bb_alpha"]) > 0
+
+    if family == "macd_signal_ls":
+        return (
+            int(params["fast_window"]) < int(params["slow_window"])
+            and int(params["signal_window"]) > 0
+        )
+
+    if family == "stoch_reversion_ls":
+        return (
+            int(params["k_window"]) > 0
+            and int(params["d_window"]) > 0
+            and float(params["lower_threshold"]) < float(params["upper_threshold"])
         )
 
     raise AssertionError(f"Unhandled family: {family}")
@@ -353,6 +412,56 @@ def generate_candidate_signals(
             "long_exits": long_exits,
             "short_entries": short_entries,
             "short_exits": short_exits,
+        }
+
+    if family == "bbands_reversion_ls":
+        bbands = vbt.BBANDS.run(
+            price,
+            window=int(params["bb_window"]),
+            alpha=float(params["bb_alpha"]),
+        )
+        long_entries = price.vbt.crossed_below(bbands.lower)
+        long_exits = price.vbt.crossed_above(bbands.middle)
+        short_entries = price.vbt.crossed_above(bbands.upper)
+        short_exits = price.vbt.crossed_below(bbands.middle)
+        return {
+            "long_entries": long_entries.fillna(False),
+            "long_exits": long_exits.fillna(False),
+            "short_entries": short_entries.fillna(False),
+            "short_exits": short_exits.fillna(False),
+        }
+
+    if family == "macd_signal_ls":
+        macd = vbt.MACD.run(
+            price,
+            fast_window=int(params["fast_window"]),
+            slow_window=int(params["slow_window"]),
+            signal_window=int(params["signal_window"]),
+        )
+        long_entries = macd.macd_crossed_above(macd.signal)
+        long_exits = macd.macd_crossed_below(macd.signal)
+        short_entries = macd.macd_crossed_below(macd.signal)
+        short_exits = macd.macd_crossed_above(macd.signal)
+        return {
+            "long_entries": long_entries.fillna(False),
+            "long_exits": long_exits.fillna(False),
+            "short_entries": short_entries.fillna(False),
+            "short_exits": short_exits.fillna(False),
+        }
+
+    if family == "stoch_reversion_ls":
+        stoch = vbt.STOCH.run(price, price, price, k_window=int(params["k_window"]), d_window=int(params["d_window"]))
+        lower_threshold = float(params["lower_threshold"])
+        upper_threshold = float(params["upper_threshold"])
+        long_entries = stoch.percent_k < lower_threshold
+        long_exits = stoch.percent_k > 50.0
+        short_entries = stoch.percent_k > upper_threshold
+        short_exits = stoch.percent_k < 50.0
+        return {
+            "long_entries": long_entries.fillna(False),
+            "long_exits": long_exits.fillna(False),
+            "short_entries": short_entries.fillna(False),
+            "short_exits": short_exits.fillna(False),
         }
 
     raise AssertionError(f"Unhandled family: {family}")
