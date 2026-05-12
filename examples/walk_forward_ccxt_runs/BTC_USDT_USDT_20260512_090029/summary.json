@@ -1,0 +1,26 @@
+{
+  "mode": "full",
+  "symbol": "BTC/USDT:USDT",
+  "exchange": "binanceusdm",
+  "timeframe": "5m",
+  "period": "540d",
+  "resolved_start": "2024-11-18T09:00:00+00:00",
+  "resolved_end": "2026-05-12T09:00:00+00:00",
+  "rows": 155520,
+  "splits": 6,
+  "median_test_selected": -6.697327884857433,
+  "median_test_hold": -1.2329390857740825,
+  "median_test_minus_hold": -5.556277754006638,
+  "test_outperform_ratio": 0.16666666666666666,
+  "mean_selected_fast_window": 49.0,
+  "mean_selected_slow_window": 100.0,
+  "files": {
+    "config": "examples/walk_forward_ccxt_runs/BTC_USDT_USDT_20260512_090029/config.json",
+    "close_price_csv": "examples/walk_forward_ccxt_runs/BTC_USDT_USDT_20260512_090029/close_price.csv",
+    "selected_params_csv": "examples/walk_forward_ccxt_runs/BTC_USDT_USDT_20260512_090029/selected_params.csv",
+    "cv_results_csv": "examples/walk_forward_ccxt_runs/BTC_USDT_USDT_20260512_090029/cv_results.csv",
+    "rolling_split_html": "examples/walk_forward_ccxt_runs/BTC_USDT_USDT_20260512_090029/rolling_split.html",
+    "cv_results_html": "examples/walk_forward_ccxt_runs/BTC_USDT_USDT_20260512_090029/cv_results.html",
+    "selected_windows_html": "examples/walk_forward_ccxt_runs/BTC_USDT_USDT_20260512_090029/selected_windows.html"
+  }
+}

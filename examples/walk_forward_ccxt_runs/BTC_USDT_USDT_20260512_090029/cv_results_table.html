@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Walk-Forward Results by Split</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 24px;
+      background: #f6f8fb;
+      color: #152033;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: 22px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      background: #ffffff;
+      border: 1px solid #d8e0ea;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    table.results-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    table.results-table thead th {
+      position: sticky;
+      top: 0;
+      background: #eef4fb;
+      border-bottom: 1px solid #c8d4e3;
+      padding: 10px 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    table.results-table tbody td {
+      border-top: 1px solid #edf1f5;
+      padding: 9px 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    table.results-table tbody tr:nth-child(even) {
+      background: #fafcff;
+    }
+    table.results-table thead th:first-child,
+    table.results-table tbody td:first-child {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Walk-Forward Results by Split</h1>
+  <div class="table-wrap">
+    <table class="dataframe results-table">
+  <thead>
+    <tr style="text-align: center;">
+      <th>split_idx</th>
+      <th>train_hold</th>
+      <th>train_median</th>
+      <th>train_best</th>
+      <th>validation_hold</th>
+      <th>validation_median</th>
+      <th>validation_selected</th>
+      <th>test_hold</th>
+      <th>test_selected</th>
+      <th>test_minus_hold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.9432</td>
+      <td>-3.0598</td>
+      <td>0.1463</td>
+      <td>3.2942</td>
+      <td>-2.0693</td>
+      <td>3.9694</td>
+      <td>0.2677</td>
+      <td>-6.6812</td>
+      <td>-6.9489</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>-1.5408</td>
+      <td>0.9126</td>
+      <td>3.4261</td>
+      <td>0.8355</td>
+      <td>1.6905</td>
+      <td>7.4876</td>
+      <td>7.7227</td>
+      <td>-6.7135</td>
+      <td>-14.4361</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>-0.2838</td>
+      <td>-2.0746</td>
+      <td>-0.1043</td>
+      <td>5.8307</td>
+      <td>-2.4329</td>
+      <td>2.2677</td>
+      <td>-2.7336</td>
+      <td>-6.8972</td>
+      <td>-4.1637</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1.8627</td>
+      <td>-2.3779</td>
+      <td>0.8752</td>
+      <td>-3.6294</td>
+      <td>0.9944</td>
+      <td>2.9472</td>
+      <td>-3.7695</td>
+      <td>-6.5289</td>
+      <td>-2.7593</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.8757</td>
+      <td>-0.2660</td>
+      <td>2.7473</td>
+      <td>-0.1859</td>
+      <td>-5.1561</td>
+      <td>-2.5878</td>
+      <td>-7.1197</td>
+      <td>7.0579</td>
+      <td>14.1776</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>1.0830</td>
+      <td>-1.4138</td>
+      <td>1.4514</td>
+      <td>5.4099</td>
+      <td>-3.2799</td>
+      <td>1.0588</td>
+      <td>3.0751</td>
+      <td>-10.9439</td>
+      <td>-14.0190</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

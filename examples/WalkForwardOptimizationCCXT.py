@@ -352,6 +352,90 @@ def write_plot(fig, path: Path) -> None:
     fig.write_html(str(path), include_plotlyjs="cdn")
 
 
+def write_table_html(
+    df: pd.DataFrame,
+    path: Path,
+    title: str,
+    *,
+    index: bool = False,
+    float_precision: int = 4,
+) -> None:
+    display_df = df.copy()
+    float_cols = display_df.select_dtypes(include=["float", "float64", "float32"]).columns
+    if len(float_cols) > 0:
+        display_df[float_cols] = display_df[float_cols].round(float_precision)
+
+    table_html = display_df.to_html(
+        index=index,
+        border=0,
+        classes=["results-table"],
+        justify="center",
+    )
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <style>
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 24px;
+      background: #f6f8fb;
+      color: #152033;
+    }}
+    h1 {{
+      margin: 0 0 16px;
+      font-size: 22px;
+    }}
+    .table-wrap {{
+      overflow-x: auto;
+      background: #ffffff;
+      border: 1px solid #d8e0ea;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }}
+    table.results-table {{
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }}
+    table.results-table thead th {{
+      position: sticky;
+      top: 0;
+      background: #eef4fb;
+      border-bottom: 1px solid #c8d4e3;
+      padding: 10px 12px;
+      text-align: right;
+      white-space: nowrap;
+    }}
+    table.results-table tbody td {{
+      border-top: 1px solid #edf1f5;
+      padding: 9px 12px;
+      text-align: right;
+      white-space: nowrap;
+    }}
+    table.results-table tbody tr:nth-child(even) {{
+      background: #fafcff;
+    }}
+    table.results-table thead th:first-child,
+    table.results-table tbody td:first-child {{
+      text-align: left;
+    }}
+  </style>
+</head>
+<body>
+  <h1>{title}</h1>
+  <div class="table-wrap">
+    {table_html}
+  </div>
+</body>
+</html>
+"""
+    path.write_text(html, encoding="utf-8")
+
+
 def run_walk_forward(config: WalkForwardConfig, output_dir: Path) -> dict[str, object]:
     price, download_context = load_price_series(config)
     (train_price, _), (validation_price, _), (test_price, _) = split_price_series(price, config)
@@ -407,6 +491,8 @@ def run_walk_forward(config: WalkForwardConfig, output_dir: Path) -> dict[str, o
     config_path = output_dir / "config.json"
     selected_params_path = output_dir / "selected_params.csv"
     cv_results_path = output_dir / "cv_results.csv"
+    selected_params_table_path = output_dir / "selected_params_table.html"
+    cv_results_table_path = output_dir / "cv_results_table.html"
     price_path = output_dir / "close_price.csv"
     split_plot_path = output_dir / "rolling_split.html"
     results_plot_path = output_dir / "cv_results.html"
@@ -419,6 +505,8 @@ def run_walk_forward(config: WalkForwardConfig, output_dir: Path) -> dict[str, o
     price.to_csv(price_path, header=True)
     selected_params_df.to_csv(selected_params_path, index=False)
     cv_results_df.to_csv(cv_results_path)
+    write_table_html(selected_params_df, selected_params_table_path, "Selected Parameters by Split")
+    write_table_html(cv_results_df.reset_index(), cv_results_table_path, "Walk-Forward Results by Split")
 
     split_fig = price.vbt.rolling_split(
         n=config.n_splits,
@@ -472,6 +560,8 @@ def run_walk_forward(config: WalkForwardConfig, output_dir: Path) -> dict[str, o
             "close_price_csv": str(price_path),
             "selected_params_csv": str(selected_params_path),
             "cv_results_csv": str(cv_results_path),
+            "selected_params_table_html": str(selected_params_table_path),
+            "cv_results_table_html": str(cv_results_table_path),
             "rolling_split_html": str(split_plot_path),
             "cv_results_html": str(results_plot_path),
             "selected_windows_html": str(selected_plot_path),

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selected Parameters by Split</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 24px;
+      background: #f6f8fb;
+      color: #152033;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: 22px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      background: #ffffff;
+      border: 1px solid #d8e0ea;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    table.results-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    table.results-table thead th {
+      position: sticky;
+      top: 0;
+      background: #eef4fb;
+      border-bottom: 1px solid #c8d4e3;
+      padding: 10px 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    table.results-table tbody td {
+      border-top: 1px solid #edf1f5;
+      padding: 9px 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    table.results-table tbody tr:nth-child(even) {
+      background: #fafcff;
+    }
+    table.results-table thead th:first-child,
+    table.results-table tbody td:first-child {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Selected Parameters by Split</h1>
+  <div class="table-wrap">
+    <table class="dataframe results-table">
+  <thead>
+    <tr style="text-align: center;">
+      <th>split_idx</th>
+      <th>fast_window</th>
+      <th>slow_window</th>
+      <th>train_sharpe</th>
+      <th>validation_sharpe</th>
+      <th>test_sharpe</th>
+      <th>test_hold_sharpe</th>
+      <th>test_minus_hold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>72</td>
+      <td>144</td>
+      <td>-0.3230</td>
+      <td>3.9694</td>
+      <td>-6.6812</td>
+      <td>0.2677</td>
+      <td>-6.9489</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>72</td>
+      <td>144</td>
+      <td>3.2740</td>
+      <td>7.4876</td>
+      <td>-6.7135</td>
+      <td>7.7227</td>
+      <td>-14.4361</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>48</td>
+      <td>72</td>
+      <td>-0.6330</td>
+      <td>2.2677</td>
+      <td>-6.8972</td>
+      <td>-2.7336</td>
+      <td>-4.1637</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>18</td>
+      <td>96</td>
+      <td>0.0980</td>
+      <td>2.9472</td>
+      <td>-6.5289</td>
+      <td>-3.7695</td>
+      <td>-2.7593</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>48</td>
+      <td>72</td>
+      <td>2.3714</td>
+      <td>-2.5878</td>
+      <td>7.0579</td>
+      <td>-7.1197</td>
+      <td>14.1776</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>36</td>
+      <td>72</td>
+      <td>0.6271</td>
+      <td>1.0588</td>
+      <td>-10.9439</td>
+      <td>3.0751</td>
+      <td>-14.0190</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

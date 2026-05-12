@@ -1,0 +1,39 @@
+{
+  "mode": "full",
+  "symbol": "BTC/USDT:USDT",
+  "exchange": "binanceusdm",
+  "period": "540d",
+  "start": null,
+  "end": null,
+  "timeframe": "5m",
+  "freq": "5min",
+  "train_days": 45,
+  "validation_days": 15,
+  "test_days": 15,
+  "n_splits": 6,
+  "windows": [
+    6,
+    12,
+    18,
+    24,
+    36,
+    48,
+    72,
+    96,
+    144
+  ],
+  "top_train_candidates": 5,
+  "direction": "both",
+  "fees": 0.00015,
+  "init_cash": 1000.0,
+  "show_progress": false,
+  "bars_per_day": 288,
+  "train_bars": 12960,
+  "validation_bars": 4320,
+  "test_bars": 4320,
+  "window_len": 21600,
+  "download_context": {
+    "resolved_start": "2024-11-18T09:00:00+00:00",
+    "resolved_end": "2026-05-12T09:00:00+00:00"
+  }
+}
